@@ -1,0 +1,124 @@
+queries
+
+mysql> create table employe(id int(10),emp_name char(20),job char(10));
+Query OK, 0 rows affected (0.38 sec)
+mysql> select * from employe;
++------+------------+---------+
+| id   | emp_name   | job     |
++------+------------+---------+
+|   11 | prathyusha | manager |
+|   12 | supraja    | cilent  |
+|   13 | bavitha    | s.e     |
+|   14 | dhanya     | c.e     |
++------+------------+---------+
+4 rows in set (0.03 sec)
+
+mysql> select employe.emp_name from employe order by emp_name;
++------------+
+| emp_name   |
++------------+
+| bavitha    |
+| dhanya     |
+| prathyusha |
+| supraja    |
++------------+
+4 rows in set (0.05 sec)
+
+mysql> select empoye.id,employe.emp_name from employe order by emp_name;
+
+mysql> select employe.id,employe.emp_name from employe order by emp_name;
++------+------------+
+| id   | emp_name   |
++------+------------+
+|   13 | bavitha    |
+|   14 | dhanya     |
+|   11 | prathyusha |
+|   12 | supraja    |
++------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select employe.id from employee order by id desc;
+ERROR 1146 (42S02): Table 'employee29.employee' doesn't exist
+mysql> select employe.id from employe order by id desc;
++------+
+| id   |
++------+
+|   14 |
+|   13 |
+|   12 |
+|   11 |
++------+
+4 rows in set (0.03 sec)
+
+mysql> select employe.emp_name from employe order by emp_name desc;
++------------+
+| emp_name   |
++------------+
+| supraja    |
+| prathyusha |
+| dhanya     |
+| bavitha    |
++------------+
+4 rows in set (0.00 sec)
+
+mysql> select employe.emp_name from employe order by emp_name Asc;
++------------+
+| emp_name   |
++------------+
+| bavitha    |
+| dhanya     |
+| prathyusha |
+| supraja    |
++------------+
+4 rows in set (0.00 sec)
+
+mysql> select employe.id from employe order by id Asc;
++------+
+| id   |
++------+
+|   11 |
+|   12 |
+|   13 |
+|   14 |
++------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employe LIMIT 3;
++------+------------+---------+
+| id   | emp_name   | job     |
++------+------------+---------+
+|   11 | prathyusha | manager |
+|   12 | supraja    | cilent  |
+|   13 | bavitha    | s.e     |
++------+------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select employe.emp_name from employe order by emp_name LIMIT 2;
++----------+
+| emp_name |
++----------+
+| bavitha  |
+| dhanya   |
++----------+
+2 rows in set (0.05 sec)
+
+mysql> select * from employe order by id desc LIMIT 3;
++------+----------+--------+
+| id   | emp_name | job    |
++------+----------+--------+
+|   14 | dhanya   | c.e    |
+|   13 | bavitha  | s.e    |
+|   12 | supraja  | cilent |
++------+----------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from employe where id>2;
++------+------------+---------+
+| id   | emp_name   | job     |
++------+------------+---------+
+|   11 | prathyusha | manager |
+|   12 | supraja    | cilent  |
+|   13 | bavitha    | s.e     |
+|   14 | dhanya     | c.e     |
++------+------------+---------+
+4 rows in set (0.03 sec)

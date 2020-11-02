@@ -1,0 +1,84 @@
+joins
+
+ create table s11(sid int(10),sname char(10),rating int(10),age int(10));
+Query OK, 0 rows affected (1.75 sec)
+
+mysql> select * from s11;
++------+-------+--------+------+
+| sid  | sname | rating | age  |
++------+-------+--------+------+
+|    1 | pra   |      7 |   23 |
+|    2 | sup   |     20 |   32 |
+|    3 | dam   |     11 |   14 |
++------+-------+--------+------+
+3 rows in set (0.00 sec)
+
+mysql> create table r11(sid int(10),bid int(10),job char(10));
+Query OK, 0 rows affected (0.55 sec)
+
+mysql> select * from r11;
++------+------+------+
+| sid  | bid  | job  |
++------+------+------+
+|    1 |  101 | s.e  |
+|    3 |  103 | c.e  |
+|    4 |  105 | dba  |
++------+------+------+
+3 rows in set (0.00 sec)
+  
+1. Inner join
+
+ 
+mysql> SELECT S.SID,S.SNAME,S.RATING,S.AGE,R.BID,R.DAY FROM S11;
+mysql> select s.sid,s.sname,s.rating,s.age,r.bid,r.job from s11 s,r11 r where s.sid=r.sid;
++------+-------+--------+------+------+------+
+| sid  | sname | rating | age  | bid  | job  |
++------+-------+--------+------+------+------+
+|    1 | pra   |      7 |   23 |  101 | s.e  |
+|    3 | dam   |     11 |   14 |  103 | c.e  |
++------+-------+--------+------+------+------+
+2 rows in set (0.08 sec)
+
+2. left outer join
+
+mysql> SELECT SID,SNAME,BID FROM S11 NATURAL LEFT OUTER JOIN r11;
++------+-------+------+
+| SID  | SNAME | BID  |
++------+-------+------+
+|    1 | pra   |  101 |
+|    3 | dam   |  103 |
+|    2 | sup   | NULL |
++------+-------+------+
+3 rows in set (0.04 sec)
+
+3.right outer join
+
+mysql> SELECT SID,SNAME,BID FROM S11 NATURAL RIGHT OUTER JOIN r11;
++------+-------+------+
+| SID  | SNAME | BID  |
++------+-------+------+
+|    1 | pra   |  101 |
+|    3 | dam   |  103 |
+|    4 | NULL  |  105 |
++------+-------+------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT R.SID,S.SNAME,R.BID FROM S11 S,R11 R WHERE s.sid=r.sid;
++------+-------+------+
+| SID  | SNAME | BID  |
++------+-------+------+
+|    1 | pra   |  101 |
+|    3 | dam   |  103 |
++------+-------+------+
+2 rows in set (0.00 sec)
+
+4.natural join 
+
+mysql> SELECT SID,SNAME,RATING,AGE,BID,job FROM S11 NATURAL join r11;
++------+-------+--------+------+------+------+
+| SID  | SNAME | RATING | AGE  | BID  | job  |
++------+-------+--------+------+------+------+
+|    1 | pra   |      7 |   23 |  101 | s.e  |
+|    3 | dam   |     11 |   14 |  103 | c.e  |
++------+-------+--------+------+------+------+
+2 rows in set (0.00 sec)

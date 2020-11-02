@@ -1,0 +1,92 @@
+1.primary key
+
+ create table employ(id int(10) primary key,name char(10),course char(10));
+Query OK, 0 rows affected (0.44 sec)
+
+mysql> insert into employ(id,name,course)
+    -> values('1','prathyusha','mca');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into employ(id,name,course)
+    -> values('2','padma','mca');
+Query OK, 1 row affected (0.08 sec)
+ 
+mysql> select * from stud5;
++------+------+--------+------+
+| sno  | name | course | phno |
++------+------+--------+------+
+|    1 | pra  | mca    |  234 |
+|    2 | abc  | mca    |  567 |
++------+------+--------+------+
+2 rows in set (0.00 sec)
+
+
+2.not null
+
+ create table emplo(id int(10) not null,name char(10) not null,course char(10) not null);
+Query OK, 0 rows affected (0.39 sec)
+
+mysql> insert into emplo(id,name,course)
+    -> values('1','pavani','mca');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into emplo(id,name,course)
+    -> values('2','barathi','btech');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select * from emplo;
++----+---------+--------+
+| id | name    | course |
++----+---------+--------+
+|  1 | pavani  | mca    |
+|  2 | barathi | btech  |
++----+---------+--------+
+2 rows in set (0.00 sec)
+
+3.unique
+
+
+ create table stud3(sno int(10)unique,sname char(10),phno int(10)unique);
+Query OK, 0 rows affected (0.48 sec)
+
+mysql> insert into stud3(sno,sname,phno)
+    -> values('1','pra','123');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into stud3(sno,sname,phno)
+    -> values('2','sup','456');
+Query OK, 1 row affected (0.08 sec)
+mysql> select * from stud3;
++------+-------+------+
+| sno  | sname | phno |
++------+-------+------+
+|    1 | pra   |  123 |
+|    2 | sup   |  456 |
++------+-------+------+
+2 rows in set (0.00 sec)
+
+4.default
+
+ create table stud5(sno int(10),name char(20),course char(10) default 'mca',phno int(10));
+Query OK, 0 rows affected (0.46 sec)
+
+mysql> insert into stud5(sno,name,phno)
+    -> values('1','pra','234');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into stud5(sno,name,phno)
+    -> values('2','abc','567');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from stud5;
++------+------+--------+------+
+| sno  | name | course | phno |
++------+------+--------+------+
+|    1 | pra  | mca    |  234 |
+|    2 | abc  | mca    |  567 |
++------+------+--------+------+
+2 rows in set (0.00 sec)
+
+
+
+ 

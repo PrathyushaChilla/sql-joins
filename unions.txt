@@ -1,0 +1,74 @@
+ union
+ 
+ create table student11(sno int(10),sname char(20),course char(10));
+Query OK, 0 rows affected (1.44 sec)
+ 
+mysql> select * from student11;
++------+------------+--------+
+| sno  | sname      | course |
++------+------------+--------+
+|  101 | prathyusha | MCA    |
+|  102 | supraja    | MCA    |
+|  103 | bavitha    | btech  |
+|  104 | pavani     | MBA    |
+|  105 | joshvika   | btech  |
+|  106 | harshitha  | MBA    |
+|  107 | dhanya     | MCA    |
++------+------------+--------+
+7 rows in set (0.03 sec)
+ 
+ create table student22(sno int(10),sname char(20),course char(10));
+Query OK, 0 rows affected (0.49 sec)
+
+mysql> select * from student22;
++------+------------+--------+
+| sno  | sname      | course |
++------+------------+--------+
+|  201 | prathyusha | mtech  |
+|  202 | akshaya    | btech  |
+|  203 | supraja    | MCA    |
+|  204 | dean       | btech  |
+|  205 | harshitha  | MBA    |
+|  206 | raj        | mtech  |
+|  207 | dhanya     | MCA    |
++------+------------+--------+
+7 rows in set (0.00 sec)
+mysql> select sname from student11 union select sname from student22;
++------------+
+| sname      |
++------------+
+| prathyusha |
+| supraja    |
+| bavitha    |
+| pavani     |
+| joshvika   |
+| harshitha  |
+| dhanya     |
+| akshaya    |
+| dean       |
+| raj        |
++------------+
+10 rows in set (0.06 sec)
+
+mysql> select sname from student11 union all select sname from student22;
++------------+
+| sname      |
++------------+
+| prathyusha |
+| supraja    |
+| bavitha    |
+| pavani     |
+| joshvika   |
+| harshitha  |
+| dhanya     |
+| prathyusha |
+| akshaya    |
+| supraja    |
+| dean       |
+| harshitha  |
+| raj        |
+| dhanya     |
++------------+
+14 rows in set (0.00 sec)
+
+
